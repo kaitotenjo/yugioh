@@ -4,7 +4,7 @@ class HomeController < ApplicationController
    
 
     def index
-        url= "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark%20Magician"
+        url= "https://db.ygoprodeck.com/api/v7/cardinfo.php"
         uri = URI(url)
         res = Net::HTTP.get_response(uri)
         @BEDs= JSON.parse(res.body)
