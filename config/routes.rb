@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'product/index'
   root "home#index"
+  post '/product', to: 'product#index'
   resources :homes
+  resources :product
 end
