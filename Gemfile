@@ -15,7 +15,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap'
 gem 'kaminari'      
 gem 'ransack'     
-gem 'bootstrap-kaminari-views' 
+gem 'bootstrap-kaminari-views'
+gem 'bcrypt'
+gem 'faker'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
