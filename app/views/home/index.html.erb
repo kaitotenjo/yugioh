@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <% @cards.each do |card| %>
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src=<%= card["card_images"].first["image_url"]%> alt="Card image cap">
+            <div class="card-body card-setting">
+                <h5 class="card-title card-name "><%= card["name"]%></h5>
+                <p class="card-text card-desc"><%= card["desc"]%></p>
+                <%= form_with(url: product_index_path) do |f| %>
+                <%= f.hidden_field :card_id, value: card["id"] %>
+                <%= f.submit "submit" %>
+                <% end %>
+            </div>
+        </div>
+        </div>
+            <% end %>
+            <%= paginate @cards , theme: 'twitter-bootstrap-3'%>
+    </div>
+</div>

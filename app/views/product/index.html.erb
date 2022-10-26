@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <% @card_sets.each do |card_set| %>
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://images.ygoprodeck.com/images/cards/46986414.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title "><%= card_set["set_name"]%></h5>
+                <p class="card-text ">code: <%= card_set["set_code"]%></p>
+                <p class="card-text ">rarity: <%= card_set["set_rarity"]%></p>
+                <p class="card-text ">rarity_code: <%= card_set["set_rarity_code"]%></p>
+                <p class="card-text ">price: <%= card_set["set_price"]%> $</p>
+            </div>
+        </div>
+        </div>
+            <% end %>
+    </div>
+</div>
