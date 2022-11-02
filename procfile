@@ -1,1 +1,1 @@
-web: rake  db:migrate && bin/rails sever -b 0.0.0.0 -p {PORT: -3000 }& bin/rails tailwindcss:wath
+web: rake  db:create db:migrate && bin/rails sever -b 0.0.0.0 -p {PORT: -3000 }& bin/rails tailwindcss:wath
