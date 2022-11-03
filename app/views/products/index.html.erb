@@ -10,6 +10,9 @@
                 <p class="card-text ">rarity: <%= card_set["set_rarity"]%></p>
                 <p class="card-text ">rarity_code: <%= card_set["set_rarity_code"]%></p>
                 <p class="card-text ">price: <%= card_set["set_price"]%> $</p>
+                <%= form_with(url: "/products/#{card_set["set_code"]}")  do |f| %>
+                <%= f.submit "Detail" , :class=>"btn btn-primary" %>
+                <% end %>
             </div>
         </div>
         </div>

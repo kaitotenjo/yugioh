@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
   root "home#index"
-  post '/product', to: 'product#index'
-  get 'product/:id', to: 'product#show', as: :product_show
+  post '/products', to: 'products#index'
+  post 'products/:id', to: 'products#show'
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
   end
@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   }
   get 'u/:id', to: 'users#show', as:'user'  
   resources :homes
-  resources :product
+  resources :products
   resources :users
 end

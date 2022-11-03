@@ -7,7 +7,7 @@
             <div class="card-body card-setting">
                 <h5 class="card-title card-name "><%= card["name"]%></h5>
                 <p class="card-text card-desc"><%= card["desc"]%></p>
-                <%= form_with(url: product_index_path) do |f| %>
+                <%= form_with(url: products_path) do |f| %>
                 <%= f.hidden_field :card_id, value: card["id"] %>
                 <%= f.submit "Price" , :class=>"btn btn-primary" %>
                 <% end %>
