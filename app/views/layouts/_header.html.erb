@@ -33,7 +33,7 @@
 							<% if user_signed_in? %>
 								<div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt=""></div>
 									<div class="dropdown">
-									<% if @user.name.blank? %>
+									<% if @user.name.blank?%>
 										<button class="btn btn-default dropdown-toggle" type="button" data-bs-toggle="dropdown">Account
 										<span class="caret"></span></button>
 									<%else%>
