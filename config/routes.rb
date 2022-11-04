@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post '/products/:card_id/:id', to: 'products#product_detail'
   get '/products/:card_id/:id', to: 'products#product_detail'
   post 'cart/add'
-  post '/orderitems', to: 'orderitems#create'
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
   end
