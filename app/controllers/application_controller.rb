@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
  
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_data
- 
+  helper_method :current_order
  
   protected
  
@@ -18,6 +18,14 @@ class ApplicationController < ActionController::Base
     uri = URI(url)
     res = Net::HTTP.get_response(uri)
     @BEDs= JSON.parse(res.body)
+  end
+
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
   end
   
 end
