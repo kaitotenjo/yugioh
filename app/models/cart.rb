@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-    has_many :orderitem
+    # has_many :orderitem
     
 
 end

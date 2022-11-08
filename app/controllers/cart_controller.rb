@@ -1,4 +1,6 @@
 class CartController < ApplicationController
-    def add 
+    def show
+        byebug
+        @order_items = current_order.order_items
     end
 end
