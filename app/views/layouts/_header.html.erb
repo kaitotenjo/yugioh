@@ -33,7 +33,7 @@
 									<%end%>
 									<ul class="dropdown-menu">
 									
-									<li><a><%= link_to "Profile", user_registration_path %></a></li>
+									<li><a><%= link_to "Profile", user_path(@user) %></a></li>
 									<li><a ><%= link_to "Edit Profile", edit_user_registration_path %></a></li>
 									<li><a><%= link_to "Sign out", destroy_user_session_path, method: :delete %></a></li>
 									<li class="divider"></li>
@@ -71,22 +71,24 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
-						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
-							<div class="cart">
-								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
-									<div class="cart_icon">
-										<img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918704/cart.png" alt="">
-										<div class="cart_count"><span>3</span></div>
-									</div>
-									<div class="cart_content">
-										<div class="cart_text"><a href="#">Cart</a></div>
-										<div class="cart_price">$185</div>
+					<% if user_signed_in? %>
+						<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+							<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+								<div class="cart">
+									<div class="cart_container d-flex flex-row align-items-center justify-content-end">
+										<div class="cart_icon">
+											<img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918704/cart.png" alt="">
+											<div class="cart_count"><span><%= current_order.orderitems.length %></span></div>
+										</div>
+										<div class="cart_content">
+											<div class="cart_text"><a href="/cart">Cart</a></div>
+											<div class="cart_price"> <%= current_order.subtotal %> $</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					<%end%>
 				</div>
 			</div>
 		</div>

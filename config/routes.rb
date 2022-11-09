@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   get 'orders/show'
   
   root "home#index"
-  post '/products/:card_id', to: 'products#index'
-  post '/products/:card_id/:id', to: 'products#product_detail'
-  get '/products/:card_id/:id', to: 'products#product_detail'
+  get '/products/:card_id', to: 'home#show'
+  post '/products/:card_id/:id', to: 'products#show'
+  get '/products/:card_id/:id', to: 'products#show'
   get '/cart', to: 'cart#show'
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     

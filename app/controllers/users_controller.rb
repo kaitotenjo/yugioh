@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, except: [:index, :new, :create ]
+  before_action :set_user , only: [:index,:show]
   before_action :logged_in_user , except: [:new, :show, :create ]
 
   def index
@@ -11,11 +11,10 @@ class UsersController < ApplicationController
   
   private
 
-  def load_user
-    @user = User.find_by id: params[:id]
-    return if @user
-    flash[:warming] = "user not found"
-    redirect_to root_path
+ 
+
+  def set_user
+    @user=current_user
   end
 
   def logged_in_user

@@ -16,7 +16,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-4">
                   <div>
                     <p class="mb-1">Shopping cart</p>
-                    <p class="mb-0">You have 2 items in your cart</p>
+                    <p class="mb-0">You have <%= current_order.orderitems.length %> items in your cart</p>
                   </div>
                   <div>
                     <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
@@ -30,12 +30,12 @@
                         <div class="d-flex flex-row align-items-center">
                             <div>
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                                src="<%= item.card_image%>"
                                 class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
                             </div>
                             <div class="ms-3">
-                            <h5><%= item.set_name%> $</h5>
-                            <p class="small mb-0">256GB, Navy Blue</p>
+                            <h5><%= item.card_name%></h5>
+                            <p class="small mb-0"><%= item.set_name%></p>
                             </div>
                         </div>
                         <div class="d-flex flex-row align-items-center">
