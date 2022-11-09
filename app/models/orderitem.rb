@@ -1,27 +1,20 @@
 class Orderitem < ApplicationRecord
   belongs_to :order
-  before_save :set_unit_price
+  before_save :s_price
   before_save :set_total
 
-  def unit_price
-    if persisted?
-      self[:unit_price]
-    else
-      set_price
-    end
-  end
-
   def total
-    unit_price * quantity
+    set_price.to_f * quantity
   end
 
   private
 
-  def set_unit_price
-    self[:unit_price] = unit_price
+  def s_price
+    self[:set_price] = set_price
   end
 
   def set_total
-    self[:total] = total * quantity
+    self.total = total
+    # byebug
   end
 end

@@ -5,9 +5,7 @@ class OrderitemsController < ApplicationController
     def create
         @orderitem = @order.orderitems.new(order_params)
         @order.save
-        session[:order_id] = @order.id
-        
-        # render template: "products/product_detail"
+        redirect_to root_path
     end
 
     def update
@@ -20,7 +18,7 @@ class OrderitemsController < ApplicationController
         @orderitem = @order.order_items.find(params[:id])
         @orderitem.destroy
         @orderitems = current_order.order_items
-      end
+    end
 
     private 
 
