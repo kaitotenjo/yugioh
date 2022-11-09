@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
   
   def product_detail
     @card_sets.each do |card_set|
-      # byebug
       if card_set.has_value?(params[:id].to_s)
         @card_detail=card_set
       else

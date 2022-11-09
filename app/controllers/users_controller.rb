@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def index
     @uses= User.all.page(params[:page]).per(5)
-    byebug
   end
 
   def show
