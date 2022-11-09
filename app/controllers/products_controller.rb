@@ -1,22 +1,20 @@
 class ProductsController < ApplicationController
-  before_action :get_product , only: [:index,:show,:product_detail]
-  before_action :load_user, only: [:index, :show,:product_detail ]
+  before_action :get_product , only: [:index,:show]
+  before_action :load_user, only: [:index, :show ]
 
   def index
   end
 
   def show
-  end
-  
-  def product_detail
     @card_sets.each do |card_set|
       if card_set.has_value?(params[:id].to_s)
         @card_detail=card_set
       else
+        redirect_to root_path
       end
-   
     end
   end
+
 
   private
   

@@ -1,0 +1,58 @@
+<div class="super_container">
+  <div class="single_product">
+    <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
+      <div class="row">
+        <div class="col-lg-2 order-lg-1 order-2">
+            <ul class="image_list">
+                <li data-image="https://i.imgur.com/21EYMGD.jpg"><img src="/assets/1.jpeg" alt=""></li>
+                <li data-image="https://i.imgur.com/DPWSNWd.jpg"><img src="/assets/2.jpeg" alt=""></li>
+                <li data-image="https://i.imgur.com/HkEiXfn.jpg"><img src="/assets/3.jpeg" alt=""></li>
+            </ul>
+        </div>
+          <div class="col-lg-4 order-lg-2 order-1">
+              <div class="image_selected"><img class="card-img-top" src=<%=@images.first["image_url"] %>  alt="Card image cap"></div>
+          </div>  
+          <div class="col-lg-6 order-3">
+            <div class="product_description">
+              <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item active"><%= @card_detail["set_code"]%></li>
+                </ol>
+              </nav>
+              <div class="product_name"><%= @cds["name"]%></div>
+              <div class="product_info"><%= @card_detail["set_name"]%></div>
+              <div> <span class="product_price"><%= @card_detail["set_price"]%> $</span>
+                <%# <strike class="product_discount"> <span style='color:black'>₹ 2,000<span> </strike>  %>
+              </div>
+              <div> <span class="product_info"><%= @card_detail["set_rarity"]%><span><br> <span class="product_info"><%= @card_detail["set_rarity_code"]%><span></div>
+                <div class="card" style="width: auto; ">
+                  <div class="card-body">
+                    <p class="card-text"><%= @cds["desc"]%></p>
+                  </div>
+                </div>
+              <div>
+              <%= form_with(url: orderitems_path) do |f| %>
+                <div class="row">
+                    <div class="col-xs-6" style="margin-left: 13px;">
+                        <div class="product_quantity quantity_custom"> <span>QTY: </span> 
+                        <%= f.number_field :quantity, value: 0, min: 1 ,class:" quantity_buttons"%>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                    <%= f.hidden_field :set_price, value: @card_detail["set_price"]%>
+                    <%= f.hidden_field :set_name, value: @card_detail["set_name"]%>
+                    <%= f.hidden_field :card_id, value: @cds["name"]%>
+                    <%= f.hidden_field :card_image, value: @images.first["image_url"] %> 
+                    <%= f.submit "Add To Cart" ,class:"btn btn-primary shop-button" ,id:"cart"%>   
+                    </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  

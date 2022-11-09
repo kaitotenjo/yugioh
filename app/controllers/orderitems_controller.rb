@@ -23,7 +23,7 @@ class OrderitemsController < ApplicationController
     private 
 
     def order_params 
-        params.permit( :quantity, :set_price, :set_name)
+        params.permit( :quantity, :set_price, :set_name, :card_name, :card_image)
     end
 
     def set_order

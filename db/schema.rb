@@ -47,9 +47,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_044837) do
   create_table "orderitems", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.integer "quantity"
-    t.string "total", default: "0"
+    t.decimal "total", precision: 10, default: "0"
     t.string "set_price"
     t.string "set_name"
+    t.string "card_name"
+    t.string "card_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_orderitems_on_order_id"

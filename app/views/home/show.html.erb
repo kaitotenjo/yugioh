@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <% @card_sets.each do |card_set| %>
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src=<%=@images.first["image_url"] %>  alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title "><%= card_set["set_name"]%></h5>
+                <p class="card-text ">code: <%= card_set["set_code"]%></p>
+                <p class="card-text ">rarity: <%= card_set["set_rarity"]%></p>
+                <p class="card-text ">rarity_code: <%= card_set["set_rarity_code"]%></p>
+                <p class="card-text ">price: <%= card_set["set_price"]%> $</p>
+                <%= form_with(url: "/products/#{@cards["id"]}/#{card_set["set_code"]}")  do |f| %>
+                <%= f.submit "Detail" , :class=>"btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+        </div>
+            <% end %>
+    </div>
+</div>
