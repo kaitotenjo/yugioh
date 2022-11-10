@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_043457) do
     t.string "set_name"
     t.string "card_name"
     t.string "card_image"
+    t.string "set_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_orderitems_on_order_id"

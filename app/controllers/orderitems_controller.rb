@@ -4,7 +4,15 @@ class OrderitemsController < ApplicationController
 
     def create
         @orderitem = @order.orderitems.new(order_params)
+       if Orderitem.find_by(set_code: @orderitem.set_code).nil?
         @order.save
+       else 
+        old_quantity = @orderitem.quantity
+        @orderitem = @order.orderitems.find_by(set_code: @orderitem.set_code)
+        new_quantity = @orderitem.quantity + old_quantity
+        @orderitem.update_attribute(:quantity,new_quantity)
+       end
+        
         redirect_to root_path
     end
 
@@ -23,7 +31,7 @@ class OrderitemsController < ApplicationController
     private 
 
     def order_params 
-        params.permit( :quantity, :set_price, :set_name, :card_name, :card_image)
+        params.permit( :quantity, :set_price, :set_name, :card_name, :card_image, :set_code)
     end
 
     def set_order
