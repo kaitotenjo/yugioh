@@ -22,13 +22,13 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if user_signed_in?
-       if Order.find_by_user_id(current_user.id).nil?
+       if Order.find_by(status: "check").nil?
         Order.new(user_id: current_user.id )
        else
-        Order.find_by_user_id(current_user.id)
+        Order.find_by(status: "check")
        end
     else
-      flash[:danger] = "Please log in."
+      flash[:danger] = "Please log in." 
       redirect_to root_path
     end
   end

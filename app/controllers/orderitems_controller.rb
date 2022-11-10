@@ -1,5 +1,5 @@
 class OrderitemsController < ApplicationController
-    before_action  :set_order
+    before_action  :set_order , only: [:create]
     before_action  :set_user
 
     def create

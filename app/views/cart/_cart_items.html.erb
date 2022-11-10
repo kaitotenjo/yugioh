@@ -106,8 +106,8 @@
                     <hr class="my-4">
 
                     <div class="d-flex justify-content-between">
-                      <p class="mb-2">Subtotal</p>
-                      <p class="mb-2"><%= current_order.subtotal %> $</p>
+                      <p class="mb-2 set-color">Subtotal</p>
+                      <p class="mb-2 set-color"><%= current_order.subtotal %> $</p>
                     </div>
 
                     <%# <div class="d-flex justify-content-between">
@@ -116,17 +116,20 @@
                     </div> %>
 
                     <div class="d-flex justify-content-between mb-4">
-                      <p class="mb-2">Total(Incl. taxes)</p>
-                      <p class="mb-2"><%= current_order.subtotal %>$</p>
+                      <p class="mb-2 set-color">Total(Incl. taxes)</p>
+                      <p class="mb-2 set-color"><%= current_order.subtotal %>$</p>
                     </div>
 
-                    <button type="button" class="btn btn-info btn-block btn-lg">
-                      <div class="d-flex justify-content-between">
-                        <span><%= current_order.subtotal %> $</span>
-                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                    <%= form_with(url: "/cart_update") do |f|  %>
+                       <%= f.hidden_field :order_id, value: current_order.id%>
+                       <%= f.hidden_field :user_id, value: @user.id%>
+                       <%= f.submit "Checkout" ,class:"btn btn-light fix_button" ,id:"cart"%>   
+                    <%end %>
+                    <%# <div id="smart-button-container">
+                      <div style="text-align: center;">
+                        <div id="paypal-button-container"></div>
                       </div>
-                    </button>
-
+                    </div> %>
                   </div>
                 </div>
 
@@ -140,3 +143,43 @@
     </div>
   </div>
 </section>
+<script>
+    function initPayPalButton() {
+    paypal.Buttons({
+      style: {
+        shape: 'pill',
+        color: 'white',
+        layout: 'horizontal',
+        label: 'paypal',
+        
+      },
+
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{"amount":{
+            "value": <%= current_order.subtotal %>
+        }}]
+        });
+      },
+
+      onApprove: function(data, actions) {
+         $.ajax({
+        url: '/cart_update',
+        method: 'POST',
+        dataType: 'json',
+        data: JSON.stringify({
+          'order_id': current_order.id,
+          'payer_id': current_user.id
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': $('meta[name="csrf-token"]').content
+        }
+      }).then(function () {
+        alert("Thanh toán thành công!");
+      });
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+  </script>

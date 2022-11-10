@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
       if card_set.has_value?(params[:id].to_s)
         @card_detail=card_set
       else
-        redirect_to root_path
       end
     end
   end
