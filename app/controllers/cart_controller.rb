@@ -9,6 +9,14 @@ class CartController < ApplicationController
         end
     end
 
+    def update_status
+        @order=Order.find_by_id(params[:order_id])
+        @order.update_attribute(:status ,"checking")
+        @payment= Payment.new(order_id: @order.id,payer_id: @user.id)
+        @payment.save
+        redirect_to root_path
+    end
+
     private
     
     def set_user

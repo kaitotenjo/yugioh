@@ -78,11 +78,21 @@
 									<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 										<div class="cart_icon">
 											<img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918704/cart.png" alt="">
-											<div class="cart_count"><span><%= current_order.orderitems.length %></span></div>
+											<% if current_order.nil?%>
+												<div class="cart_count"><span>0</span></div>
+											<%else%>
+												<div class="cart_count"><span><%= current_order.orderitems.length %></span></div>
+											<%end%>
 										</div>
 										<div class="cart_content">
 											<div class="cart_text"><a href="/cart">Cart</a></div>
-											<div class="cart_price"> <%= current_order.subtotal %> $</div>
+											<% if current_order.nil?%>
+												<div class="cart_price"> 0$</div>
+											<%else%>
+												<div class="cart_price"> <%= current_order.subtotal %> $</div>
+											<%end%>
+											
+
 										</div>
 									</div>
 								</div>
