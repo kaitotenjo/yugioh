@@ -45,6 +45,7 @@
                     <%= f.hidden_field :set_name, value: @card_detail["set_name"]%>
                     <%= f.hidden_field :card_id, value: @cds["name"]%>
                     <%= f.hidden_field :card_image, value: @images.first["image_url"] %> 
+                    <%= f.hidden_field :set_code, value: @card_detail["set_code"]%> 
                     <%= f.submit "Add To Cart" ,class:"btn btn-primary shop-button" ,id:"cart"%>   
                     </div>
                 </div>
