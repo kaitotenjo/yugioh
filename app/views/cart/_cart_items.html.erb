@@ -23,34 +23,7 @@
                         class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
                   </div>
                 </div>
-                <% @order_items.each do |item| %>
-                    <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                            <div>
-                            <img
-                                src="<%= item.card_image%>"
-                                class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                            </div>
-                            <div class="ms-3">
-                            <h5><%= item.card_name%></h5>
-                            <p class="small mb-0"><%= item.set_name%></p>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-row align-items-center">
-                            <div style="width: 50px;">
-                            <h5 class="fw-normal mb-0"><%= item.quantity%></h5>
-                            </div>
-                            <div style="width: 80px;">
-                            <h5 class="mb-0"><%= item.set_price%> $</h5>
-                            </div>
-                            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                <%end%>
+                  <%= render 'order_items'%>
               </div>
               <div class="col-lg-5">
 
@@ -123,7 +96,7 @@
                     <%= form_with(url: "/cart_update") do |f|  %>
                        <%= f.hidden_field :order_id, value: current_order.id%>
                        <%= f.hidden_field :user_id, value: @user.id%>
-                       <%= f.submit "Checkout" ,class:"btn btn-light fix_button" ,id:"cart"%>   
+                       <%= f.submit "Checkout" ,class:"btn btn-light fix_button"%>   
                     <%end %>
                     <%# <div id="smart-button-container">
                       <div style="text-align: center;">
@@ -149,7 +122,7 @@
       style: {
         shape: 'pill',
         color: 'white',
-        layout: 'horizontal',
+        layout: 'horizontal',import { jsonToString } from "webpack/lib/Stats";
         label: 'paypal',
         
       },

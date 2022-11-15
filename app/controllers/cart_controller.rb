@@ -1,12 +1,8 @@
 class CartController < ApplicationController
     before_action  :set_user
+    before_action :get_order_items ,only:[ :show, :update_quantity]
     
-    def show
-        if @user.nil?
-            redirect_to root_path
-        else
-            @order_items = current_order.orderitems
-        end
+    def show 
     end
 
     def update_status
@@ -17,9 +13,23 @@ class CartController < ApplicationController
         redirect_to root_path
     end
 
-    private
-    
-    def set_user
-        @user = current_user
+    def update_quantity
+        @order_items.each do |order_item|
+          order_item.update_attribute(:quantity,params[order_item.card_name])
+        end
+        respond_to do |format|
+            format.html { redirect_to cart_path } #, flash[:success] = "holder updated")
+            format.js
+        end
     end
+    private
+
+    def get_order_items 
+        if @user.nil?
+            redirect_to root_path
+        else
+            @order_items = current_order.orderitems
+        end
+    end
+
 end

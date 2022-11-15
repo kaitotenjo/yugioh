@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_data
   helper_method :current_order
+  helper_method :set_user
  
   protected
  
@@ -31,8 +32,11 @@ class ApplicationController < ActionController::Base
     else
       flash[:danger] = "Please log in." 
       redirect_to root_path
-    end 
-      
+    end  
+  end
+
+  def set_user
+    @user= current_user
   end
   
   

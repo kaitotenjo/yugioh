@@ -1,0 +1,36 @@
+<%= form_with(url: cart_update_quantity_path) do |f|  %>
+<% @order_items.each do |item| %>
+  <div class="card mb-3">
+      <div class="card-body">
+          <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+              <div>
+              <img
+                  src="<%= item.card_image%>"
+                  class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+              </div>
+              <div class="ms-3">
+              <h5><%= item.card_name%></h5>
+              <p class="small mb-0"><%= item.set_name%></p>
+              </div>
+          </div>
+          <div class="d-flex flex-row align-items-center">
+              <div style="width: 60px; right :30px;">
+                  
+                  <h5 class="fw-normal mb-0">
+                  <div data-th="Quantity">
+
+                    <%= f.number_field :quantity, name:item.card_name, value: item.quantity,class:" form-control form-control-lg text-center setting-number"%>
+                  </div> 
+                  </div>  
+              <div style="width: 80px;">
+              <h5 class="mb-0"><%= item.set_price%> $</h5>
+              </div>
+          </div>   
+          </div>  
+      </div>
+  </div>
+  
+<%end%>
+<%= f.submit "update" ,class:"btn btn-light fix_button"%>
+<%end%>

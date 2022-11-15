@@ -11,12 +11,6 @@ class UsersController < ApplicationController
   
   private
 
- 
-
-  def set_user
-    @user=current_user
-  end
-
   def logged_in_user
     unless user_signed_in?
       flash[:danger] = "Please log in."
