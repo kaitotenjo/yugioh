@@ -1,3 +1,4 @@
+
 .set-color{
     color: white;
 }
@@ -9,3 +10,34 @@
 .setting-number{
     padding: 0.3rem;
 }
+.shopping-cart-items {
+    position: absolute;
+    z-index: 12;
+    padding-top: 20px;
+
+    li {
+    margin-bottom: 18px;
+    }
+
+    img {
+    float: left;
+    margin-right: 12px;
+    }
+
+.item-name {
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.item-price {
+    color: white;
+    margin-right: 8px;
+}
+
+.item-quantity {
+    color: black;
+}
+}
+   
+

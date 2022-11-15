@@ -1,0 +1,16 @@
+<div class="dropdown">
+<button class="btn btn-default " type="button" data-bs-toggle="dropdown">Cart
+<span class="caret"></span></button>
+<ul class="dropdown-menu shopping-cart-items">
+
+<%current_order.orderitems.each do |item|%>
+  <li class="clearfix">
+    <img src="<%= item.card_image%>" alt="item1" width="80" height="50">
+    <span class="item-name"><%= item.card_name%></span>
+    <span class="item-price">$<%= item.set_price%></span>
+    <span class="item-quantity">Quantity: <%= item.quantity%></span>
+  </li>
+<%end%>
+
+</ul>
+</div>

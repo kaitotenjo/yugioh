@@ -15,7 +15,11 @@ class CartController < ApplicationController
 
     def update_quantity
         @order_items.each do |order_item|
-          order_item.update_attribute(:quantity,params[order_item.card_name])
+          if params[order_item.card_name] == 0
+            order_item.delete
+          else
+            order_item.update_attribute(:quantity,params[order_item.card_name])
+          end
         end
         respond_to do |format|
             format.html { redirect_to cart_path } #, flash[:success] = "holder updated")
