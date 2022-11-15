@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :get_product , only: [:index,:show]
-  before_action :load_user, only: [:index, :show ]
+  before_action :set_user, only: [:index, :show ]
 
   def index
   end
@@ -30,14 +30,6 @@ class ProductsController < ApplicationController
     @cards=@cds
     @card_sets=@cds["card_sets"]
     @images = @cds["card_images"]
-  end
-
-  def load_user
-    if user_signed_in?
-    @user = User.find_by(id: current_user.id)
-    else 
-        
-    end
   end
 
 end
