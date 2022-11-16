@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one_attached :avatar 
   has_one :cart 
   has_many :orders
+  has_many :commets
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

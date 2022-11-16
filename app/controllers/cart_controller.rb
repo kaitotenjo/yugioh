@@ -7,11 +7,12 @@ class CartController < ApplicationController
 
     def update_status
         @order=Order.find_by_id(params[:order_id])
+        UserMailer.with(user: current_user ,order: @order).ordersuccess.deliver_now
         @order.update_attribute(:status ,"checking")
         @payment= Payment.new(order_id: @order.id,payer_id: @user.id)
         @payment.save
         redirect_to root_path
-    end
+    end 
 
     def update_quantity
         @order_items.each do |order_item|
