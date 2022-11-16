@@ -3,6 +3,5 @@ class PaymentsController < ApplicationController
     end
 
     def create 
-        byebug
     end
 end
