@@ -6,3 +6,6 @@
     });
     
   })();
+  document.querySelector('#submit_comment').addEventListener('click', function(event) {
+    event.preventDefault();
+  });

@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
       else
       end
     end
+    @comment = Comment.new
+    @comments= Comment.where(product_id: params[:id])
   end
 
 

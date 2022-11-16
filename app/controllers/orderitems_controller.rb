@@ -9,7 +9,6 @@ class OrderitemsController < ApplicationController
         respond_to do |format|
             format.html { redirect_to cart_path } #, flash[:success] = "holder updated")
             format.js
-      end
       else 
         old_quantity = @orderitem.quantity
         @orderitem = @order.orderitems.find_by(set_code: @orderitem.set_code)
@@ -21,8 +20,6 @@ class OrderitemsController < ApplicationController
       end
     end
 
-       
-    end
 
     def update
       @orderitem = @order.order_items.find_by_id(params[:id])
