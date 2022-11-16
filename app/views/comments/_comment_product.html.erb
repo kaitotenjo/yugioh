@@ -1,0 +1,24 @@
+<%= form_with model: [@comment] do |f| %>
+<div class="container bootdey">
+<div class="col-md-12 bootstrap snippets">
+<div class="panel">
+  <div class="panel-body">
+   <%= f.hidden_field :product_id, value: @card_detail["set_code"]%>
+    <%= f.text_area :content ,class:"form-control", placeholder:"What are you thinking?" ,  row:2 %>
+    <div class="mar-top clearfix" >
+      <%= f.submit "Comment" , class:"btn btn-sm btn-primary pull-right", id:"submit_comment"%>
+    </div>
+  </div>
+</div>
+<%end%>
+<div class="panel">
+    <div class="panel-body">
+        <div class="media-block">
+            <% @comments.each do |comment| %>
+            <%= render  "comments/comment" ,comment: comment%>
+            <%end%>
+        </div>
+    </div>
+</div>
+</div>
+</div>
