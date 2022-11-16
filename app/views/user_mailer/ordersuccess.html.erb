@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>the order of <%= @user.email %> with id: <%= @order.id %> success </h1>
+    <p>
+     the order has :
+    </p>
+    <%@order.orderitems.each do |item|%>
+    <p>
+      <%= item.card_name%> of the set :<%= item.set_name%> with price for per card : <%= item.set_price%> $
+    </p>
+    <%end%>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
