@@ -21,6 +21,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'json'
 gem 'paypal-checkout-sdk'
+gem 'turbo-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -43,3 +44,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "importmap-rails", "~> 1.1"
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"

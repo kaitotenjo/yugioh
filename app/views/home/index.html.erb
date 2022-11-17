@@ -1,19 +1,8 @@
 <div class="container">
     <div class="row">
         <% @cards.each do |card| %>
-        <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src=<%= card["card_images"].first["image_url"]%> alt="Card image cap">
-            <div class="card-body card-setting">
-                <h5 class="card-title card-name "><%= card["name"]%></h5>
-                <p class="card-text card-desc"><%= card["desc"]%></p>
-                <%= form_with(url: "/products/#{card["id"]}") do |f| %>
-                <%= f.submit "Price" , :class=>"btn btn-primary" %>
-                <% end %>
-            </div>
-        </div>
-        </div>
-            <% end %>
-            <%= paginate @cards , theme: 'twitter-bootstrap-3'%>
+        <%= render 'home/card', card:card %>
+        <% end %>
+        <%= paginate @cards , theme: 'twitter-bootstrap-3'%>
     </div>
 </div>
