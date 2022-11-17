@@ -4,19 +4,15 @@ class OrderitemsController < ApplicationController
 
     def create
       @orderitem = @order.orderitems.new(order_params)
-      if Orderitem.find_by(set_code: @orderitem.set_code).nil?
+      if @order.orderitems.find_by(set_code: @orderitem.set_code).nil? 
         @order.save
-        respond_to do |format|
-            format.html { redirect_to cart_path } #, flash[:success] = "holder updated")
-            format.js
+        redirect_back(fallback_location: root_path)
       else 
         old_quantity = @orderitem.quantity
         @orderitem = @order.orderitems.find_by(set_code: @orderitem.set_code)
         new_quantity = @orderitem.quantity + old_quantity
         @orderitem.update_attribute(:quantity,new_quantity)
-        respond_to do |format|
-            format.html { redirect_to cart_path } #, flash[:success] = "holder updated")
-            format.js
+        redirect_back(fallback_location: root_path)
       end
     end
 

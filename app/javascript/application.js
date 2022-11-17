@@ -1,4 +1,4 @@
 
 import "bootstrap";
 import "header";
-import "cart";
+import "cart";import "@hotwired/turbo-rails"

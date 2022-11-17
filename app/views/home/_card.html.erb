@@ -1,0 +1,19 @@
+<div class="col-sm">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=<%= card["card_images"].first["image_url"]%> alt="Card image cap">
+    <div class="card-body card-setting">
+        <h5 class="card-title "><%= card["name"]%></h5>
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="card card-body">
+                <p class="card-text card-desc"><%= card["desc"]%></p>
+            </div>
+            </div>
+        </div>
+        <%= form_with(url: "/products/#{card["id"]}") do |f| %>
+        <%= f.submit "Price" , :class=>"btn btn-primary" %>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Show more</a>
+        <% end %>
+    </div>
+    </div>
+</div>
