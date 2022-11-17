@@ -19,7 +19,7 @@ class CartController < ApplicationController
 
     def update_quantity
         @order_items.each do |order_item|
-          if params[order_item.card_name] == 0
+          if params[order_item.card_name] == "0"
             order_item.delete
           else
             order_item.update_attribute(:quantity,params[order_item.card_name])
@@ -30,6 +30,7 @@ class CartController < ApplicationController
             format.js
         end
     end
+
     private
 
     def get_order_items 

@@ -31,7 +31,7 @@
 }
 
 .item-price {
-    color: white;
+    color: black;
     margin-right: 8px;
 }
 
@@ -40,4 +40,19 @@
 }
 }
    
-
+.cart-drop{
+    width: 200px;
+}
+.button-card-detail{
+    margin-top: 20%;
+    justify-content: space-between ;
+    display: flex;
+}
+.number-field{
+    margin-top: 10px;
+}
+.update-cart{
+    bottom: 100%;
+    justify-content: space-between ;
+    display: flex;
+}

@@ -16,7 +16,6 @@ class OrderitemsController < ApplicationController
       end
     end
 
-
     def update
       @orderitem = @order.order_items.find_by_id(params[:id])
       @orderitem.update_attributes(order_params)
@@ -24,6 +23,7 @@ class OrderitemsController < ApplicationController
     end 
 
     def destroy
+      byebug
       @orderitem = @order.order_items.find_by_id(params[:id])
       @orderitem.destroy
       @orderitems = current_order.order_items

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get '/cart', to: 'cart#show'
   post '/cart_update', to: 'cart#update_status'
   post '/cart/update_quantity', to:'cart#update_quantity' 
-
   post 'comments', to:'comments#create' 
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
