@@ -24,11 +24,18 @@
               <div style="width: 80px;">
               <h5 class="mb-0"><%= item.set_price%> $</h5>
               </div>
+              <div>
+                <%= link_to "x", orderitem_path(item) ,data: { turbo_method: :delete, turbo_confirm: "You sure?" } , class: "btn btn-light" %>
+              </div>
           </div>   
           </div>  
       </div>
   </div>
   
 <%end%>
-<%= f.submit "update" ,class:"btn btn-light fix_button"%>
+<% if @order_items.length != 0 %>
+  <div class ="update-cart">
+    <%= f.submit "update" ,class:"btn btn-light fix_button"%>
+  </div>
+<% end%>
 <%end%>

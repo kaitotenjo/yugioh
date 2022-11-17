@@ -5,12 +5,12 @@
 
 <%current_order.orderitems.each do |item|%>
   <li class="clearfix">
-    <img src="<%= item.card_image%>" alt="item1" width="80" height="50">
+    <img src="<%= item.card_image%>" alt="item1" width="50" height="70">
     <span class="item-name"><%= item.card_name%></span>
     <span class="item-price">$<%= item.set_price%></span>
     <span class="item-quantity">Quantity: <%= item.quantity%></span>
   </li>
 <%end%>
-
+<a class="btn btn-primary cart-drop" href="/cart" role="button">Checkout</a>
 </ul>
 </div>

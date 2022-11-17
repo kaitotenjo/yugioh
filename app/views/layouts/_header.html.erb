@@ -8,7 +8,7 @@
 					<div class="col d-flex flex-row">
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918577/phone.png" alt=""></div>+84 964-703-613</div>
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918597/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">nguyenthekien2308@gmail.com</a></div>
-						<div class="top_bar_content ml-auto">
+						<div class="top_bar_content ml-auto header-acc">
 							<div class="top_bar_menu">
 								<ul class="standard_dropdown top_bar_dropdown">
 								 <li>
@@ -85,10 +85,12 @@
 											<%end%>
 										</div>
 										<div class="cart_content">
-											<%= render 'cart/cart_dropdown' %>
-											<% if current_order.nil?%>
+											
+											<% if current_order.orderitems.blank?%>
+												<a> Cart</a>
 												<div class="cart_price"> 0$</div>
 											<%else%>
+												<%= render 'cart/cart_dropdown' %>
 												<div class="cart_price"> <%= current_order.subtotal %> $</div>
 											<%end%>
 										</div>
