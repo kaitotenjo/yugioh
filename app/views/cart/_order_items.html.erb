@@ -25,7 +25,7 @@
               <h5 class="mb-0"><%= item.set_price%> $</h5>
               </div>
               <div>
-                <%= link_to "x", orderitem_path(item) ,data: { turbo_method: :delete, turbo_confirm: "You sure?" } , class: "btn btn-light" %>
+                <%= button_to "x", orderitem_path(item),method: :delete ,data: { turbo_confirm: "You sure?" } , class: "btn btn-light" %>
               </div>
           </div>   
           </div>  

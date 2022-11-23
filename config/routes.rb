@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin/index'
   get 'orders/show'
   
   root "home#index"
@@ -23,4 +24,5 @@ Rails.application.routes.draw do
   resources :users
   resources :orderitems
   resources :payments
+  resources :admins
 end

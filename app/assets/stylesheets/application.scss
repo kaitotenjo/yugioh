@@ -1,8 +1,5 @@
 
 @import "bootstrap";
-@import "home";
-@import "header";
-@import "footer";
-@import "products";
-@import "cart";
-@import "comment";
+@import "user/*";
+@import "bootstrap.min";
+@import "style";
