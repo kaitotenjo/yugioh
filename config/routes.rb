@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   get 'u/:id', to: 'users#show', as:'user'  
+  namespace :admin do
+    resources :dashboard
+  end
   resources :homes
   resources :products
   resources :users
