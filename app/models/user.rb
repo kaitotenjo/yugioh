@@ -8,6 +8,12 @@ class User < ApplicationRecord
   has_one :cart 
   has_many :orders
   has_many :commets
+  enum role: [:user,:manager ,:admin]
+  after_initialize :set_default_role ,:if =>  :new_record? 
+
+  def set_default_role
+    self.role ||= :user
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
